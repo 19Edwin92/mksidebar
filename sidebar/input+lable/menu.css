@@ -1,0 +1,47 @@
+/* 화면상에서 보이지 않도로 */
+input[id="menuicon"] {
+  display: none;
+}
+
+/* input태그의 크기 */
+input[id="menuicon"]+label {
+  display: block;
+  width: 50px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* span태그의 크기 */
+input[id="menuicon"]+label span {
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 5px;
+  border-radius: 30px;
+  background: #000;
+  transition: all .35s;
+}
+
+/* span태그의 위치, translateY(-50%) 컨텐츠 높의의 50%만큼 함으로 크기의 위쪽이 아닌 가운데로 정렬*/
+input[id="menuicon"]+label span:nth-last-child(1) {
+  top:0;}
+input[id="menuicon"]+label span:nth-last-child(2) {
+  top:50%;transform:translateY(-50%);}
+input[id="menuicon"]+label span:nth-last-child(3) {
+  bottom:0;}
+
+
+/* 클릭했을 때의 span 태그*/
+input[id="menuicon"]:checked +label span:nth-child(1) {
+  top:50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+/* 투명도 pacity: 0; */
+input[id="menuicon"]:checked +label span:nth-child(2) {
+  opacity: 0;
+}
+input[id="menuicon"]:checked +label span:nth-child(3) {
+  top:50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
